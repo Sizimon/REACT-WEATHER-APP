@@ -1,18 +1,37 @@
-import CloudyImage from '../assets/cloudy.png';
-
 export default function WeatherBox() {
     return (
-        <div className="flex w-1/3 items-center justify-evenly bg-slate-900 border border-white rounded-md  py-6">
-            <form className='w-1/4'>
-                <div className="flex flex-col items-center gap-2">
-                <label className="text-white">Enter Your City</label>
-                <input className="bg-slate-600 rounded-md text-white text-center" type="text" />
+        <>
+            <form className='flex flex-col items-center gap-12'>
+                <div className="flex flex-row items-center gap-2">
+                    <input className="text-white text-center bg-slate-700 rounded-lg" type="text" />
+                    <button className="">
+                        *Search Icon*
+                    </button>
                 </div>
             </form>
-            <button className="text-white flex flex-col items-center w-1/4">
-                <img src={CloudyImage} />
-                Check Weather
-            </button>
-        </div>
+            <div className='flex items-center flex-col'>
+                <span>
+                    <img src='' />
+                </span>
+                <span>
+                <h3>LOCATION</h3>
+                <p>TEMPERATURE</p>
+                </span>
+            </div>
+            <div className='flex flex-row gap-6'>
+                <div>
+                    <img src />
+                    <p>Humidity</p>
+                </div>
+                <div>
+                    <img src />
+                    <p>Wind</p>
+                </div>
+                <div>
+                    <img src />
+                    <p>Feels Like</p>
+                </div>
+            </div>
+        </>
     )
 }
