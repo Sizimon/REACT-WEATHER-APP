@@ -8,7 +8,7 @@ export default function WeatherBox() {
         <>
             <form className='flex flex-col items-center w-full'>
                 <div className="flex w-full flex-row items-center justify-evenly my-4">
-                    <input className="text-white h-9 w-3/4 pl-2 outline-none bg-slate-800 rounded-3xl border-2 border-white text-md" type="text" placeholder="City" />
+                    <input className="text-white font-neonTilt uppercase h-9 w-3/4 pl-2 outline-none bg-slate-800 rounded-3xl border-2 border-white text-md" type="text" placeholder="City" />
                     <span className='w-6'>
                         <img src={searchIcon} />
                     </span>
