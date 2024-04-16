@@ -77,8 +77,8 @@ export default function WeatherBox() {
     return (
         <>
             <form className='flex flex-col items-center w-full'>
-                <div className="flex w-full flex-row items-center justify-evenly my-4">
-                    <input className="text-white font-neonTilt uppercase h-9 w-3/4 pl-2 outline-none bg-slate-800 rounded-3xl border-2 border-white text-md"
+                <div className="flex w-full flex-row items-center justify-evenly md:justify-center md:gap-4 my-4">
+                    <input className="text-white font-neonTilt uppercase h-9 w-3/4 md:w-1/2 pl-2 outline-none bg-slate-800 rounded-3xl border-2 border-white text-md"
                         value={location}
                         onChange={e => setLocation(e.target.value)}
                         type="text"

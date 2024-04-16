@@ -2,8 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
+/* @layer base {
   body {
     @apply bg-gradient-to-r from-indigo-950 to-purple-800
   }
+} */
+
+#tsparticles {
+  z-index: -1;
 }
