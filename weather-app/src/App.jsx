@@ -67,6 +67,7 @@ function App() {
             <span className='w-40 h-auto'>
               <img src={currentWeather} />
             </span>
+            {data.weather ? <p className='uppercase'>{data.weather[0].description}</p> : null}
           </div>
           <div className='flex flex-row gap-12 font-neonTilt text-white text-2xl'>
             <span>
@@ -77,11 +78,11 @@ function App() {
             </span>
           </div>
           <div className='flex flex-row gap-6 font-neonTilt text-white pb-4 items-center justify-evenly w-full'>
-            <div className='w-1/4 flex flex-col items-center'>
+            <div className='w-1/4 flex flex-col items-center align-center text-center'>
               <img src={IconImages.humidityIcon} className='w-12' />
               {data.main ? <p>Humidity {data.main.humidity}%</p> : null}
             </div>
-            <div className='w-1/4 flex flex-col items-center'>
+            <div className='w-1/4 flex flex-col items-center align-center text-center'>
               <img src={IconImages.windIcon} className='w-12' />
               {data.wind ? <p>Wind {data.wind.speed}m/s</p> : null}
             </div>
