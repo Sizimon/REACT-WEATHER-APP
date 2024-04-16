@@ -7,6 +7,7 @@ import rain from './assets/heavy-rain.png';
 import sun from './assets/sun.png';
 import storm from './assets/storm.png';
 import snow from './assets/snowy.png';
+import fog from './assets/fog.png';
 
 const WeatherImages = {
     sunny: sun,
@@ -14,6 +15,7 @@ const WeatherImages = {
     rainy: rain,
     stormy: storm,
     snowy: snow,
+    foggy: fog,
 }
 
 const IconImages = {

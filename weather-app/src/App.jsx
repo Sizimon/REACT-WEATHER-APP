@@ -24,6 +24,9 @@ function App() {
           case 'Clouds':
             setCurrentWeather(WeatherImages.cloudy)
             break
+          case 'Drizzle':
+            setCurrentWeather(WeatherImages.rainy)
+            break
           case 'Rain':
             setCurrentWeather(WeatherImages.rainy)
             break
@@ -33,11 +36,39 @@ function App() {
           case 'Thunderstorm':
             setCurrentWeather(WeatherImages.stormy)
             break
+          case 'Mist':
+            setCurrentWeather(WeatherImages.foggy)
+            break
+          case 'Fog':
+            setCurrentWeather(WeatherImages.foggy)
+            break
+          case 'Haze':
+            setCurrentWeather(WeatherImages.foggy)
+            break
+          case 'Smoke':
+            setCurrentWeather(WeatherImages.foggy)
+            break
+          case 'Dust':
+            setCurrentWeather(WeatherImages.foggy)
+            break
+          case 'Sand':
+            setCurrentWeather(WeatherImages.foggy)
+            break
+          case 'Ash':
+            setCurrentWeather(WeatherImages.foggy)
+            break
+          case 'Squall':
+            setCurrentWeather(WeatherImages.foggy)
+            break
+          case 'Tornado':
+            setCurrentWeather(WeatherImages.foggy)
+            break
           default:
             setCurrentWeather(IconImages.defaultIcon)
             break
         }
       })
+      setLocation('')
     }
   
   function handleSearchClick() {
