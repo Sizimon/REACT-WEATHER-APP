@@ -15,50 +15,76 @@ export default function WeatherBox() {
         axios.get(url).then((response) => {
             setData(response.data)
             console.log(response.data)
-            switch (response.data.weather[0].main) {
-                case 'Clear':
+            switch (response.data.weather[0].description) {
+                case 'clear sky':
                     setCurrentWeather(WeatherImages.sunny)
                     break
-                case 'Clouds':
+                case 'few clouds':
+                case 'scattered clouds':
+                    setCurrentWeather(WeatherImages.sunnyWithClouds)
+                    break
+                case 'broken clouds':
+                case 'overcast clouds':
                     setCurrentWeather(WeatherImages.cloudy)
                     break
-                case 'Drizzle':
+                case 'drizzle':
+                case 'heavy intensity drizzle':
+                case 'light intensity drizzle rain':
+                case 'drizzle rain':
+                case 'heavy intensity drizzle rain':
+                case 'shower rain and drizzle':
+                case 'heavy shower rain and drizzle':
+                case 'shower drizzle':
+                case 'light intensity drizzle':
+                    setCurrentWeather(WeatherImages.drizzling)
+                    break
+                case 'light rain':
+                case 'moderate rain':
+                case 'heavy intensity rain':
+                case 'very heavy rain':
+                case 'extreme rain':
+                case 'freezing rain':
+                case 'light intensity shower rain':
+                case 'shower rain':
+                case 'heavy intensity shower rain':
+                case 'ragged shower rain':
                     setCurrentWeather(WeatherImages.rainy)
                     break
-                case 'Rain':
-                    setCurrentWeather(WeatherImages.rainy)
-                    break
-                case 'Snow':
+                case 'light snow':
+                case 'snow':
+                case 'heavy snow':
+                case 'sleet':
+                case 'light shower sleet':
+                case 'shower sleet':
+                case 'light rain and snow':
+                case 'rain and snow':
+                case 'light shower snow':
+                case 'shower snow':
+                case 'heavy shower snow':
                     setCurrentWeather(WeatherImages.snowy)
                     break
-                case 'Thunderstorm':
+                case 'thunderstorm with light rain':
+                case 'thunderstorm with rain':
+                case 'thunderstorm with heavy rain':
+                case 'light thunderstorm':
+                case 'thunderstorm':
+                case 'heavy thunderstorm':
+                case 'ragged thunderstorm':
+                case 'thunderstorm with light drizzle':
+                case 'thunderstorm with drizzle':
+                case 'thunderstorm with heavy drizzle':
                     setCurrentWeather(WeatherImages.stormy)
                     break
-                case 'Mist':
-                    setCurrentWeather(WeatherImages.foggy)
-                    break
-                case 'Fog':
-                    setCurrentWeather(WeatherImages.foggy)
-                    break
-                case 'Haze':
-                    setCurrentWeather(WeatherImages.foggy)
-                    break
-                case 'Smoke':
-                    setCurrentWeather(WeatherImages.foggy)
-                    break
-                case 'Dust':
-                    setCurrentWeather(WeatherImages.foggy)
-                    break
-                case 'Sand':
-                    setCurrentWeather(WeatherImages.foggy)
-                    break
-                case 'Ash':
-                    setCurrentWeather(WeatherImages.foggy)
-                    break
-                case 'Squall':
-                    setCurrentWeather(WeatherImages.foggy)
-                    break
-                case 'Tornado':
+                case 'mist':
+                case 'smoke':
+                case 'haze':
+                case 'sand/dust whirls':
+                case 'fog':
+                case 'sand':
+                case 'dust':
+                case 'volcanic ash':
+                case 'squalls':
+                case 'tornado':
                     setCurrentWeather(WeatherImages.foggy)
                     break
                 default:
