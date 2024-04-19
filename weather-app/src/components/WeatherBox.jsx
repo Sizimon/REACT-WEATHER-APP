@@ -102,19 +102,52 @@ export default function WeatherBox() {
 
     return (
         <>
-            <form className='flex flex-col items-center w-full'>
+            <form className='flex flex-col items-center self-start w-full'>
                 <div className="flex w-full flex-row items-center justify-evenly md:justify-center md:gap-4 my-4">
-                    <input className="text-white font-neonTilt uppercase h-9 w-3/4 md:w-1/2 pl-2 outline-none bg-slate-800 rounded-3xl border-2 border-white text-md"
+                    <input className="text-black font-neonTilt h-9 w-3/4 md:w-1/2 pl-2 outline-none bg-white rounded-3xl border border-white text-md placeholder:italic transition ease-in-out hover:"
                         value={location}
                         onChange={e => setLocation(e.target.value)}
                         type="text"
                         placeholder="Search for city" />
-                    <span className='w-6'>
+                    <span className='w-6 transition ease-in-out delay-50 hover:scale-125 duration-300'>
                         <img src={IconImages.searchIcon} onClick={handleSearchClick} />
                     </span>
                 </div>
             </form>
-            <div className='flex items-center flex-col font-neonTilt text-white'>
+            {currentWeather === IconImages.defaultIcon ? 
+            <div className='flex items-center flex-col font-neonTilt text-white m-auto gap-10'>
+            <span className='w-48 h-auto'>
+                <img src={currentWeather} />
+            </span>
+            <p className='uppercase'>Please Enter a Valid Location.</p>
+            </div> : 
+            <>
+            <div className='flex items-center flex-col font-neonTilt text-white m-auto'>
+                <span className='w-40 h-auto'>
+                    <img src={currentWeather} />
+                </span>
+                {data.weather ? <p className='uppercase'>{data.weather[0].description}</p> : null}
+            </div>
+            <div className='flex flex-row gap-12 font-neonTilt text-white text-2xl m-auto'>
+                <span>
+                    <h3>{data.name}</h3>
+                </span>
+                <span>
+                    {data.main ? <h3>{data.main.temp}°C</h3> : null}
+                </span>
+            </div>
+            <div className='flex flex-row gap-6 font-neonTilt text-white pb-4 items-center justify-evenly w-full'>
+                <div className='w-1/4 flex flex-col items-center align-center text-center'>
+                    <img src={IconImages.humidityIcon} className='w-12' />
+                    {data.main ? <p>Humidity {data.main.humidity}%</p> : null}
+                </div>
+                <div className='w-1/4 flex flex-col items-center align-center text-center'>
+                    <img src={IconImages.windIcon} className='w-12' />
+                    {data.wind ? <p>Wind {data.wind.speed}m/s</p> : null}
+                </div>
+            </div>
+            </> }
+            {/* <div className='flex items-center flex-col font-neonTilt text-white'>
                 <span className='w-40 h-auto'>
                     <img src={currentWeather} />
                 </span>
@@ -137,7 +170,7 @@ export default function WeatherBox() {
                     <img src={IconImages.windIcon} className='w-12' />
                     {data.wind ? <p>Wind {data.wind.speed}m/s</p> : null}
                 </div>
-            </div>
+            </div> */}
         </>
     )
 }

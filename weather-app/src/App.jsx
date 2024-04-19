@@ -10,7 +10,7 @@ function App() {
       <div className='h-auto flex items-center justify-start flex-col'>
         <Header />
       </div>
-      <div className="h-3/4 w-10/12 md:w-4/12 py-4 bg-slate-900 rounded-3xl flex flex-col justify-between items-center">
+      <div className="h-3/4 w-10/12 md:w-4/12 py-4 bg-slate-900 rounded-3xl flex flex-col items-center">
         <WeatherBox />
       </div>
       <ParticleBackground />
