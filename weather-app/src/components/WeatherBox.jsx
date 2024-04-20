@@ -104,7 +104,7 @@ export default function WeatherBox() {
         <>
             <form className='flex flex-col items-center self-start w-full'>
                 <div className="flex w-full flex-row items-center justify-evenly md:justify-center md:gap-4 my-4">
-                    <input className="text-black font-neonTilt h-9 w-3/4 md:w-1/2 pl-2 outline-none bg-white rounded-3xl border border-white text-md placeholder:italic transition ease-in-out hover:"
+                    <input className="text-black font-neonTilt h-9 md:h-14 lg:h-10 w-3/4 md:w-1/2 pl-2 outline-none bg-white rounded-3xl border border-white text-md md:text-xl placeholder:italic transition ease-in-out hover:"
                         value={location}
                         onChange={e => setLocation(e.target.value)}
                         onKeyDown={(e) => {
@@ -115,71 +115,44 @@ export default function WeatherBox() {
                         }}
                         type="text"
                         placeholder="Search for city" />
-                    <span className='w-6 transition ease-in-out delay-50 hover:scale-125 duration-300'>
+                    <span className='w-6 md:w-8 transition ease-in-out delay-50 hover:scale-125 duration-300'>
                         <img src={IconImages.searchIcon} onClick={handleSearchClick} />
                     </span>
                 </div>
             </form>
-            {currentWeather === IconImages.defaultIcon ? 
-            <div className='flex items-center flex-col font-neonTilt text-white m-auto gap-10'>
-            <span className='w-48 h-auto'>
-                <img src={currentWeather} />
-            </span>
-            <p className='uppercase'>Please Enter a Valid Location.</p>
-            </div> : 
-            <>
-            <div className='flex items-center flex-col gap-6 font-neonTilt text-white m-auto'>
-                <span>
-                    <h3 className='text-2xl'>{data.name}</h3>
-                </span>
-                <span className='w-40 h-auto'>
-                    <img src={currentWeather} />
-                </span>
-                {data.weather ? <p className='uppercase text-md'>{data.weather[0].description}</p> : null}
-            </div>
-            <div className='flex flex-col font-neonTilt text-white text-2xl m-auto'>
-                {/* <span>
-                    <h3>{data.name}</h3>
-                </span> */}
-                <span>
-                    {data.main ? <h3 className='text-4xl'>{Math.round(data.main.temp)}°C</h3> : null}
-                </span>
-            </div>
-            <div className='flex flex-row gap-6 font-neonTilt text-white pb-4 items-center justify-evenly w-full m-auto'>
-                <div className='w-1/4 flex flex-col items-center align-center text-center'>
-                    <img src={IconImages.humidityIcon} className='w-12' />
-                    {data.main ? <p>Humidity {data.main.humidity}%</p> : null}
-                </div>
-                <div className='w-1/4 flex flex-col items-center align-center text-center'>
-                    <img src={IconImages.windIcon} className='w-12' />
-                    {data.wind ? <p>Wind {data.wind.speed}m/s</p> : null}
-                </div>
-            </div>
-            </> }
-            {/* <div className='flex items-center flex-col font-neonTilt text-white'>
-                <span className='w-40 h-auto'>
-                    <img src={currentWeather} />
-                </span>
-                {data.weather ? <p className='uppercase'>{data.weather[0].description}</p> : null}
-            </div>
-            <div className='flex flex-row gap-12 font-neonTilt text-white text-2xl'>
-                <span>
-                    <h3>{data.name}</h3>
-                </span>
-                <span>
-                    {data.main ? <h3>{data.main.temp}°C</h3> : '°C'}
-                </span>
-            </div>
-            <div className='flex flex-row gap-6 font-neonTilt text-white pb-4 items-center justify-evenly w-full'>
-                <div className='w-1/4 flex flex-col items-center align-center text-center'>
-                    <img src={IconImages.humidityIcon} className='w-12' />
-                    {data.main ? <p>Humidity {data.main.humidity}%</p> : null}
-                </div>
-                <div className='w-1/4 flex flex-col items-center align-center text-center'>
-                    <img src={IconImages.windIcon} className='w-12' />
-                    {data.wind ? <p>Wind {data.wind.speed}m/s</p> : null}
-                </div>
-            </div> */}
+            {currentWeather === IconImages.defaultIcon ?
+                <div className='flex items-center flex-col font-neonTilt text-white m-auto gap-10'>
+                    <span className='w-48 md:w-72 lg:w-48 h-auto'>
+                        <img src={currentWeather} />
+                    </span>
+                    <p className='uppercase md:text-2xl lg:text-lg'>Please Enter a Valid Location.</p>
+                </div> :
+                <>
+                    <div className='flex items-center flex-col gap-6 font-neonTilt text-white m-auto'>
+                        <span>
+                            <h3 className='text-2xl md:text-4xl lg:text-2xl'>{data.name}</h3>
+                        </span>
+                        <span className='w-40 md:w-52 lg:w-40 h-auto'>
+                            <img src={currentWeather} className='transition ease-in-out delay-50 hover:scale-125 duration-1000'/>
+                        </span>
+                        {data.weather ? <p className='uppercase text-md md:text-2xl lg:text-md'>{data.weather[0].description}</p> : null}
+                    </div>
+                    <div className='flex flex-col font-neonTilt text-white text-2xl m-auto'>
+                        <span>
+                            {data.main ? <h3 className='text-4xl md:text-6xl lg:text-4xl'>{Math.round(data.main.temp)}°C</h3> : null}
+                        </span>
+                    </div>
+                    <div className='flex flex-row gap-6 font-neonTilt text-white pb-4 items-center justify-evenly w-full m-auto'>
+                        <div className='w-1/4 flex flex-col items-center align-center text-center'>
+                            <img src={IconImages.humidityIcon} className='w-12 md:w-20 lg:w-12' />
+                            {data.main ? <p className='text-sm md:text-2xl lg:text-sm'>Humidity: {data.main.humidity}%</p> : null}
+                        </div>
+                        <div className='w-1/4 flex flex-col items-center align-center text-center'>
+                            <img src={IconImages.windIcon} className='w-12 md:w-20 lg:w-12' />
+                            {data.wind ? <p className='text-sm md:text-2xl lg:text-sm'>Wind: {data.wind.speed}m/s</p> : null}
+                        </div>
+                    </div>
+                </>}
         </>
     )
 }
