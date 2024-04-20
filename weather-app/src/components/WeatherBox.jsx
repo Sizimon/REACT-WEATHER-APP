@@ -107,6 +107,12 @@ export default function WeatherBox() {
                     <input className="text-black font-neonTilt h-9 w-3/4 md:w-1/2 pl-2 outline-none bg-white rounded-3xl border border-white text-md placeholder:italic transition ease-in-out hover:"
                         value={location}
                         onChange={e => setLocation(e.target.value)}
+                        onKeyDown={(e) => {
+                            if (e.key === 'Enter') {
+                                e.preventDefault()
+                                handleSearchClick()
+                            }
+                        }}
                         type="text"
                         placeholder="Search for city" />
                     <span className='w-6 transition ease-in-out delay-50 hover:scale-125 duration-300'>
@@ -122,21 +128,21 @@ export default function WeatherBox() {
             <p className='uppercase'>Please Enter a Valid Location.</p>
             </div> : 
             <>
-            <div className='flex items-center flex-col gap-2 font-neonTilt text-white m-auto'>
+            <div className='flex items-center flex-col gap-6 font-neonTilt text-white m-auto'>
                 <span>
-                    <h3>{data.name}</h3>
+                    <h3 className='text-2xl'>{data.name}</h3>
                 </span>
                 <span className='w-40 h-auto'>
                     <img src={currentWeather} />
                 </span>
-                {data.weather ? <p className='uppercase'>{data.weather[0].description}</p> : null}
+                {data.weather ? <p className='uppercase text-md'>{data.weather[0].description}</p> : null}
             </div>
             <div className='flex flex-col font-neonTilt text-white text-2xl m-auto'>
                 {/* <span>
                     <h3>{data.name}</h3>
                 </span> */}
                 <span>
-                    {data.main ? <h3>{Math.round(data.main.temp)}°C</h3> : null}
+                    {data.main ? <h3 className='text-4xl'>{Math.round(data.main.temp)}°C</h3> : null}
                 </span>
             </div>
             <div className='flex flex-row gap-6 font-neonTilt text-white pb-4 items-center justify-evenly w-full m-auto'>
