@@ -122,21 +122,24 @@ export default function WeatherBox() {
             <p className='uppercase'>Please Enter a Valid Location.</p>
             </div> : 
             <>
-            <div className='flex items-center flex-col font-neonTilt text-white m-auto'>
+            <div className='flex items-center flex-col gap-2 font-neonTilt text-white m-auto'>
+                <span>
+                    <h3>{data.name}</h3>
+                </span>
                 <span className='w-40 h-auto'>
                     <img src={currentWeather} />
                 </span>
                 {data.weather ? <p className='uppercase'>{data.weather[0].description}</p> : null}
             </div>
-            <div className='flex flex-row gap-12 font-neonTilt text-white text-2xl m-auto'>
-                <span>
+            <div className='flex flex-col font-neonTilt text-white text-2xl m-auto'>
+                {/* <span>
                     <h3>{data.name}</h3>
-                </span>
+                </span> */}
                 <span>
-                    {data.main ? <h3>{data.main.temp}°C</h3> : null}
+                    {data.main ? <h3>{Math.round(data.main.temp)}°C</h3> : null}
                 </span>
             </div>
-            <div className='flex flex-row gap-6 font-neonTilt text-white pb-4 items-center justify-evenly w-full'>
+            <div className='flex flex-row gap-6 font-neonTilt text-white pb-4 items-center justify-evenly w-full m-auto'>
                 <div className='w-1/4 flex flex-col items-center align-center text-center'>
                     <img src={IconImages.humidityIcon} className='w-12' />
                     {data.main ? <p>Humidity {data.main.humidity}%</p> : null}
