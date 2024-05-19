@@ -6,7 +6,7 @@ import { WeatherImages } from '../Images'
 export default function SearchBar({ setData, setCurrentWeather }) {
     const [location, setLocation] = useState('')
 
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=6edf707405e684d632b174666be9d090&units=metric`
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${import.meta.env.VITE_api_Key}&units=metric`
 
     const searchLocation = () => {
         axios.get(url).then((response) => {
