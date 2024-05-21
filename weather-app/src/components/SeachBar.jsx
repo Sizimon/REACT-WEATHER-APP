@@ -99,7 +99,7 @@ export default function SearchBar({ setData, setCurrentWeather }) {
     return (
         <form className='flex flex-col items-center self-start w-full'>
             <div className="flex w-full flex-row items-center justify-evenly md:justify-center md:gap-4 my-4">
-                <input className="text-black font-neonTilt h-9 md:h-14 lg:h-9 w-3/4 md:w-1/2 pl-2 outline-none bg-white rounded-3xl border border-white text-md md:text-xl placeholder:italic transition ease-in-out hover:"
+                <input className="text-black font-neonTilt h-9 md:h-14 lg:h-8 w-3/4 md:w-1/2 pl-2 outline-none bg-white rounded-3xl border border-white text-md md:text-xl transition ease-in-out"
                     value={location}
                     onChange={e => setLocation(e.target.value)}
                     onKeyDown={(e) => {
