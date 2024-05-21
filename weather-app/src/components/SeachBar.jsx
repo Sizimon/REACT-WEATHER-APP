@@ -33,8 +33,6 @@ export default function SearchBar({ setData, setCurrentWeather }) {
                 case 'heavy shower rain and drizzle':
                 case 'shower drizzle':
                 case 'light intensity drizzle':
-                    setCurrentWeather(WeatherImages.drizzling)
-                    break
                 case 'light rain':
                 case 'moderate rain':
                 case 'heavy intensity rain':
