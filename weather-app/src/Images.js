@@ -10,8 +10,6 @@ import snow from './assets/snowy.json';
 import fog from './assets/fog.json';
 import sunClouds from './assets/sunny-with-clouds.json';
 
-import background from './assets/background-animation.json'
-
 const WeatherImages = {
     sunny: sun,
     sunnyWithClouds: sunClouds,
@@ -28,8 +26,4 @@ const IconImages = {
     windIcon: wind,
 }
 
-const main = {
-    background: background
-}
-
-export {WeatherImages, IconImages, main};
+export {WeatherImages, IconImages};
