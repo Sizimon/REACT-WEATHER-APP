@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { IconImages } from '../Images'
 import { WeatherImages } from '../Images'
+import { FaMagnifyingGlass } from 'react-icons/fa6'
 
 export default function SearchBar({ setData, setCurrentWeather }) {
     const [location, setLocation] = useState('')
@@ -97,7 +98,7 @@ export default function SearchBar({ setData, setCurrentWeather }) {
     return (
         <form className='flex flex-col items-center self-start w-full'>
             <div className="flex w-full flex-row items-center justify-evenly md:justify-center md:gap-4 my-4">
-                <input className="text-black font-neonTilt h-9 md:h-14 lg:h-8 w-3/4 md:w-1/2 pl-2 outline-none bg-white rounded-3xl border border-white text-md md:text-xl transition ease-in-out"
+                <input className="text-violet-700 font-neonTilt h-8 md:h-12 lg:h-8 w-3/4 md:w-1/2 pl-2 outline-none bg-white rounded-3xl border border-violet-700 text-md md:text-lg transition ease-in-out"
                     value={location}
                     onChange={e => setLocation(e.target.value)}
                     onKeyDown={(e) => {
@@ -109,7 +110,10 @@ export default function SearchBar({ setData, setCurrentWeather }) {
                     type="text"
                     placeholder="Search for city" />
                 <span className='w-6 md:w-8 transition ease-in-out delay-50 hover:scale-125 duration-300'>
-                    <img src={IconImages.searchIcon} onClick={handleSearchClick} />
+                    <FaMagnifyingGlass 
+                    className='cursor-pointer text-violet-700 text-2xl'
+                    onClick={handleSearchClick}
+                    />
                 </span>
             </div>
         </form>
